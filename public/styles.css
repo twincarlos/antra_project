@@ -15,13 +15,14 @@ button {
     margin-top: 10px;
 }
 
-.todo-span {
-    background-color: rgb(255, 190, 69);
+.todo-span, .edit-span {
+    background-color: #e6e2d3;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     margin: 10px;
     border-radius: 10px;
+    height: 5vh;
 }
 
 #task-input {
@@ -35,4 +36,10 @@ button {
     border: none;
     padding: 10px 20px;
     border-radius: 10px;
+}
+
+.edit-field {
+    outline: none;
+    border: none;
+    padding: 5px 10px;
 }

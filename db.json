@@ -1,9 +1,19 @@
 {
   "todos": [
     {
+      "title": "Sell a book",
+      "completed": false,
+      "id": 5
+    },
+    {
+      "title": "Visit Cancun",
+      "completed": false,
+      "id": 7
+    },
+    {
       "title": "Buy a book",
       "completed": false,
-      "id": 4
+      "id": 8
     }
   ]
 }

@@ -5,7 +5,7 @@ const submitButton = document.getElementById("submit-button");
 
 fetch("http://localhost:3000/todos/")
 .then(() => {
-    fetch("./db.json")
+    fetch("../db.json")
     .then(res => res.json())
     .then(data => {
         for(let todo of data.todos) {

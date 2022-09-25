@@ -6,14 +6,9 @@
       "id": 5
     },
     {
-      "title": "Visit Cancun",
-      "completed": false,
-      "id": 7
-    },
-    {
       "title": "Buy a book",
       "completed": false,
-      "id": 8
+      "id": 6
     }
   ]
 }

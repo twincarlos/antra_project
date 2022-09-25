@@ -1,11 +1,12 @@
 const todoListDiv = document.getElementById("todo-list-div");
+const completedDiv = document.getElementById("completed-div");
 
 const taskInput = document.getElementById("task-input");
 const submitButton = document.getElementById("submit-button");
 
 fetch("http://localhost:3000/todos/")
 .then(() => {
-    fetch("../db.json")
+    fetch("./db.json")
     .then(res => res.json())
     .then(data => {
         for(let todo of data.todos) {
@@ -14,7 +15,17 @@ fetch("http://localhost:3000/todos/")
 
             const todoP = document.createElement("p");
             todoP.classList.add("todo-p");
+            if (todo.completed) todoP.classList.add("completed-p");
             todoP.innerText = todo.title;
+            todoP.addEventListener("click", () => {
+                fetch(`http://localhost:3000/todos/${todo.id}`, {
+                    method: "PATCH",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ completed: !todo.completed })
+                });
+            });
 
             const todoEdit = document.createElement("button");
             todoEdit.classList.add("todo-edit");
@@ -67,9 +78,9 @@ fetch("http://localhost:3000/todos/")
                 });
             });
 
-            todoListDiv.appendChild(todoSpan);
+            todo.completed ? completedDiv.appendChild(todoSpan) : todoListDiv.appendChild(todoSpan);
             todoSpan.appendChild(todoP);
-            todoSpan.appendChild(todoEdit);
+            if (!todo.completed) todoSpan.appendChild(todoEdit);
             todoSpan.append(todoDelete);
         };
     });

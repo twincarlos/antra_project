@@ -10,7 +10,7 @@ button {
     cursor: pointer;
 }
 
-#todo-list-div {
+#todo-list-div, #completed-div {
     width: 60vw;
     margin-top: 10px;
 }
@@ -42,4 +42,27 @@ button {
     outline: none;
     border: none;
     padding: 5px 10px;
+}
+
+.todo-p {
+    cursor: pointer;
+}
+
+.completed-p {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.todo-edit, .edit-submit {
+    background-color: #008cba;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+.todo-delete, .cancel-edit {
+    background-color: #c94c4c;
+    border: none;
+    border-radius: 5px;
+    color: white;
 }

@@ -29,6 +29,11 @@ button {
     margin: 10px;
     border-radius: 10px;
     height: 5vh;
+    transition: .5s;
+}
+
+.todo-span:hover, .edit-span:hover {
+    background-color: #d4c79e;
 }
 
 .buttons-span {

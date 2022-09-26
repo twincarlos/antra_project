@@ -13,6 +13,9 @@ fetch("http://localhost:3000/todos/")
             const todoSpan = document.createElement("span");
             todoSpan.classList.add("todo-span");
 
+            const buttonsSpan = document.createElement("span");
+            buttonsSpan.classList.add("buttons-span");
+
             const todoP = document.createElement("p");
             todoP.classList.add("todo-p");
             if (todo.completed) todoP.classList.add("completed-p");
@@ -29,7 +32,7 @@ fetch("http://localhost:3000/todos/")
 
             const todoEdit = document.createElement("button");
             todoEdit.classList.add("todo-edit");
-            todoEdit.innerText = "Edit";
+            todoEdit.innerHTML = "<i class=\"fas fa-pen\"></i>";
             todoEdit.addEventListener("click", () => {
                 const editSpan = document.createElement("span");
                 editSpan.classList.add("edit-span");
@@ -40,7 +43,7 @@ fetch("http://localhost:3000/todos/")
 
                 const editSubmit = document.createElement("button");
                 editSubmit.classList.add("edit-submit");
-                editSubmit.innerText = "Submit";
+                editSubmit.innerHTML = "<i class=\"fas fa-check\"></i>";
                 editSubmit.addEventListener("click", () => {
                     fetch(`http://localhost:3000/todos/${todo.id}`, {
                         method: "PUT",
@@ -53,7 +56,7 @@ fetch("http://localhost:3000/todos/")
 
                 const cancelEdit = document.createElement("button");
                 cancelEdit.classList.add("cancel-edit");
-                cancelEdit.innerText = "Cancel";
+                cancelEdit.innerHTML = "<i class=\"fas fa-chevron-left\"></i>";
                 cancelEdit.addEventListener("click", () => {
                     todoListDiv.replaceChild(todoSpan, editSpan);
                 });
@@ -67,7 +70,7 @@ fetch("http://localhost:3000/todos/")
 
             const todoDelete = document.createElement("button");
             todoDelete.classList.add("todo-delete");
-            todoDelete.innerText = "Delete";
+            todoDelete.innerHTML = "<i class=\"fas fa-trash-alt\"></i>";
             todoDelete.addEventListener("click", () => {
                 fetch(`http://localhost:3000/todos/${todo.id}`, {
                     method: "DELETE",
@@ -80,9 +83,12 @@ fetch("http://localhost:3000/todos/")
 
             todo.completed ? completedDiv.appendChild(todoSpan) : todoListDiv.appendChild(todoSpan);
             todoSpan.appendChild(todoP);
-            if (!todo.completed) todoSpan.appendChild(todoEdit);
-            todoSpan.append(todoDelete);
+            if (!todo.completed) buttonsSpan.appendChild(todoEdit);
+            buttonsSpan.append(todoDelete);
+            todoSpan.appendChild(buttonsSpan);
         };
+
+        if (document.getElementsByClassName("completed-p").length > 0) completedDiv.style.visibility = "visible";
     });
 });
 

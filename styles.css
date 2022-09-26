@@ -10,9 +10,15 @@ button {
     cursor: pointer;
 }
 
+#completed-div {
+    visibility: hidden;
+}
+
 #todo-list-div, #completed-div {
     width: 60vw;
     margin-top: 10px;
+    border: 3px solid #e6e2d3;
+    border-radius: 5px;
 }
 
 .todo-span, .edit-span {
@@ -23,6 +29,13 @@ button {
     margin: 10px;
     border-radius: 10px;
     height: 5vh;
+}
+
+.buttons-span {
+    width: 10vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #task-input {
@@ -46,6 +59,7 @@ button {
 
 .todo-p {
     cursor: pointer;
+    width: 30vw;
 }
 
 .completed-p {
@@ -58,6 +72,7 @@ button {
     border: none;
     border-radius: 5px;
     color: white;
+    padding: 5px;
 }
 
 .todo-delete, .cancel-edit {
@@ -65,4 +80,9 @@ button {
     border: none;
     border-radius: 5px;
     color: white;
+    padding: 5px;
+}
+
+.cancel-edit {
+    padding: 5px 8px;
 }
